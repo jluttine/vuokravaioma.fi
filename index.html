@@ -56,57 +56,56 @@
                 Ostat asunnon lainalla ja/tai säästöillä ja maksat lainan pois tasaerinä.
               </p>
 	    </header>
-            <div align="center">
-              <table>
-                <tr>
-                  <td class="label"><label for="hinta">Asunnon hinta (e)</label></td>
-                  <td><input type="number" id="hinta" min="0" value="200000" step="any" onchange="update()"/></td>
-                </tr>
 
-                <tr>
-                  <td class="label"><label for="paaoma">Alkupääoma (e)</label></td>
-                  <td><input type="number" id="paaoma" min="0" value="20000" step="any" onchange="update()"/></td>
-                </tr>
-                
-                <tr>
-                  <td class="label"><label for="hinta">Lainan suuruus (e)</label></td>
-                  <td id="laina">200000</td>
-                </tr>
+            <table>
+              <tr>
+                <td class="label"><label for="hinta">Asunnon hinta (e)</label></td>
+                <td><input type="number" id="hinta" min="0" value="200000" step="any" onchange="update()"/></td>
+              </tr>
 
-                <tr>
-                  <td class="label"><label for="korko">Korko (%/vuosi)</label></td>
-                  <td><input type="number" id="korko" min="0" value="4" step="any" onchange="update()"/></td>
-                </tr>
+              <tr>
+                <td class="label"><label for="paaoma">Alkupääoma (e)</label></td>
+                <td><input type="number" id="paaoma" min="0" value="20000" step="any" onchange="update()"/></td>
+              </tr>
+              
+              <tr>
+                <td class="label"><label>Lainan suuruus (e)</label></td>
+                <td id="laina">200000</td>
+              </tr>
 
-                <tr>
-                  <td class="label"><label for="aika">Laina-aika (vuotta)</label></td>
-                  <td><input type="number" id="aika" min="0" value="15" step="any" onchange="update()"/></td>
-                </tr>
+              <tr>
+                <td class="label"><label for="korko">Korko (%/vuosi)</label></td>
+                <td><input type="number" id="korko" min="0" value="4" step="any" onchange="update()"/></td>
+              </tr>
 
-                <tr>
-                  <td class="label"><label for="annuiteetti">Annuiteetti (e/vuosi)</label></td>
-                  <td id="annuiteetti">???</td>
-                </tr>
+              <tr>
+                <td class="label"><label for="aika">Laina-aika (vuotta)</label></td>
+                <td><input type="number" id="aika" min="0" value="15" step="any" onchange="update()"/></td>
+              </tr>
 
-                <tr>
-                  <td class="label"><label for="vastike">Yhtiövastike (e/kk)</label></td>
-                  <td><input type="number" id="vastike" min="0" value="200" step="any" onchange="update()"/></td>
-                </tr>
+              <tr>
+                <td class="label"><label>Annuiteetti (e/vuosi)</label></td>
+                <td id="annuiteetti">???</td>
+              </tr>
 
-                <tr>
-                  <td class="label"><label for="kulu">Kokonaiskulut (e/kk)</label></td>
-                  <td id="kulu">???</td>
-                </tr>
+              <tr>
+                <td class="label"><label for="vastike">Yhtiövastike (e/kk)</label></td>
+                <td><input type="number" id="vastike" min="0" value="200" step="any" onchange="update()"/></td>
+              </tr>
 
-                <tr><td>&nbsp;</td></tr>
+              <tr>
+                <td class="label"><label>Kokonaiskulut (e/kk)</label></td>
+                <td id="kulu">???</td>
+              </tr>
 
-                <tr>
-                  <td class="label"><label for="omistuspaaoma">Pääoma lopussa</label></td>
-                  <td id="omistuspaaoma">???</td>
-                </tr>
+              <tr><td>&nbsp;</td><td></td></tr>
 
-              </table>
-            </div>
+              <tr>
+                <td class="label"><label>Pääoma lopussa</label></td>
+                <td id="omistuspaaoma">???</td>
+              </tr>
+
+            </table>
 	  </section>
 
 	  <section class="6u">
@@ -121,33 +120,31 @@
               </p>
 	    </header>
 
-            <div align="center">
-              <table>
-                
-                <tr>
-                  <td class="label"><label for="vuokra">Vuokra (e/kk)</label></td>
-                  <td><input type="number" id="vuokra" min="0" value="1000" step="any" onchange="update()"/></td>
-                </tr>
+            <table>
+              
+              <tr>
+                <td class="label"><label for="vuokra">Vuokra (e/kk)</label></td>
+                <td><input type="number" id="vuokra" min="0" value="1000" step="any" onchange="update()"/></td>
+              </tr>
 
-                <tr>
-                  <td class="label"><label for="saasto">Sijoitus (e/kk)</label></td>
-                  <td id="saasto">???</td>
-                </tr>
+              <tr>
+                <td class="label"><label>Sijoitus (e/kk)</label></td>
+                <td id="saasto">???</td>
+              </tr>
 
-                <tr>
-                  <td class="label"><label for="tuotto">Sijoitusten tuotto (%/vuosi)</label></td>
-                  <td><input type="number" id="tuotto" min="0" value="5" step="any" onchange="update()"/></td>
-                </tr>
+              <tr>
+                <td class="label"><label for="tuotto">Sijoitusten tuotto (%/vuosi)</label></td>
+                <td><input type="number" id="tuotto" min="0" value="5" step="any" onchange="update()"/></td>
+              </tr>
 
-                <tr><td>&nbsp;</td></tr>
+              <tr><td>&nbsp;</td><td></td></tr>
 
-                <tr>
-                  <td class="label"><label for="vuokrapaaoma">Pääoma lopussa</label></td>
-                  <td id="vuokrapaaoma">???</td>
-                </tr>
+              <tr>
+                <td class="label"><label>Pääoma lopussa</label></td>
+                <td id="vuokrapaaoma">???</td>
+              </tr>
 
-              </table>
-            </div>
+            </table>
 
 	  </section>
 
@@ -172,21 +169,21 @@
       <div class="container">
 	<section>
           <header>
-          <h2>Laskuri tekee tällä hetkellä seuraavia oletuksia:</h2>
-          <p>
-            <ul>
-              <li>Asunnon hinta, vuokra ja yhtiövastike tai lainan korko
-                ja vaihtoehtoisten sijoitusten tuottoprosentti eivät muutu
-                ajanjakson aikana.</li>
-              <li>Laina maksetaan takaisin tasaeräisenä.</li>
-              <li>Varainsiirtoveroa tai erilaisia verohelpotuksia ei ole huomioitu.</li>
-              <li>Laskelmissa voi olla muitakin yksinkertaistuksia. Virheistä
-                voi ilmoittaa ja parannuksia
-                tarjota <a href="https://github.com/jluttine/vuokravaioma.fi">GitHubissa</a>, <a href="https://twitter.com/vuokravaioma">Twitterissä</a>
-                tai <a href="https://www.facebook.com/pages/Vuokra-vai-oma/718265951586832">Facebookissa.</a>
-              </li>
-            </ul>
-          </p>
+            <h2>Laskuri tekee tällä hetkellä seuraavia oletuksia:</h2>
+            <p>
+              <ul>
+                <li>Asunnon hinta, vuokra ja yhtiövastike tai lainan korko
+                  ja vaihtoehtoisten sijoitusten tuottoprosentti eivät muutu
+                  ajanjakson aikana.</li>
+                <li>Laina maksetaan takaisin tasaeräisenä.</li>
+                <li>Varainsiirtoveroa tai erilaisia verohelpotuksia ei ole huomioitu.</li>
+                <li>Laskelmissa voi olla muitakin yksinkertaistuksia. Virheistä
+                  voi ilmoittaa ja parannuksia
+                  tarjota <a href="https://github.com/jluttine/vuokravaioma.fi">GitHubissa</a>, <a href="https://twitter.com/vuokravaioma">Twitterissä</a>
+                  tai <a href="https://www.facebook.com/pages/Vuokra-vai-oma/718265951586832">Facebookissa.</a>
+                </li>
+              </ul>
+            </p>
           </header>
           <p><i> Vastuuvapauslauseke: Käytä vertailua omalla
             vastuullasi. Sivuston tekijät tai ylläpitäjät eivät takaa että

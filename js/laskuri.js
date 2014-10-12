@@ -17,7 +17,78 @@
  *****************************************************************************/
 
 function update() {
-    var paaoma = document.getElementById('paaoma').value;
-    var hinta = document.getElementById('hinta').value;
-    document.getElementById("laina").innerHTML = hinta - paaoma;
+    // Lue parametrit
+    var paaoma = document.getElementById('paaoma').value * 1.0;
+    var hinta = document.getElementById('hinta').value * 1.0;
+    var korko = document.getElementById('korko').value / 100.0;
+    var aika = document.getElementById('aika').value * 1.0;
+    var vastike = document.getElementById('vastike').value * 1.0;
+    
+    var vuokra = document.getElementById('vuokra').value * 1.0;
+    var tuotto = document.getElementById('tuotto').value / 100.0;
+
+    // Laske omistusasumisen tunnusluvut
+    if (hinta > paaoma) {
+        var laina = hinta - paaoma;
+        var omistuspaaoma = hinta;
+    }
+    else {
+        var laina = 0.0;
+        var omistuspaaoma = paaoma;
+    }
+
+    if (aika > 0) {
+        var kasvukerroin = Math.pow(1+korko, aika)
+        if (korko > 0)
+            var annuiteetti = kasvukerroin * korko / (kasvukerroin - 1) * laina;
+        else if (korko == 0)
+            var annuiteetti = laina / aika;
+    }
+    else if (aika == 0) {
+        var annuiteetti = laina;
+    }
+
+    var kulu = annuiteetti / 12.0 + vastike
+
+    // Laske vuokralla asumisen tunnusluvut
+    if (kulu > vuokra) {
+        var kksaasto = kulu - vuokra;
+        var saasto = 12 * kksaasto;
+        var kerroin = Math.pow(1+tuotto, aika);
+        var vuokrapaaoma = kerroin * paaoma + (kerroin - 1) / tuotto * saasto;
+    }
+    else {
+        var saasto = - (vuokra-kulu) * 12
+        var vuokrapaaoma = saasto * aika;
+    }
+
+    // Näytä tunnusluvut
+    document.getElementById("laina").innerHTML = round(laina);
+    document.getElementById("annuiteetti").innerHTML = round(annuiteetti);
+    document.getElementById("kulu").innerHTML = round(kulu);
+
+    document.getElementById("saasto").innerHTML = round(saasto);
+    document.getElementById("lopussa").innerHTML = round(vuokrapaaoma);
+
+    // Loppulausunto
+    vuokrapaaoma = round(vuokrapaaoma);
+    omistuspaaoma = round(omistuspaaoma);
+    if (vuokrapaaoma > omistuspaaoma) {
+        var lausunto = "Annetuilla tiedoilla <b>vuokra-asunto</b> on " + (vuokrapaaoma-omistuspaaoma) + " euroa kannattavampi.";
+    }
+    else if (vuokrapaaoma < omistuspaaoma) {
+        var lausunto = "Annetuilla tiedoilla <b>omistusasunto</b> on " + (omistuspaaoma-vuokrapaaoma) + " euroa kannattavampi.";
+    }
+    else {
+        var lausunto = "Annetuilla tiedoilla vuokra-asunto ja omistusasunto ovat yhtä kannattavia.";
+    }
+    document.getElementById("lausunto").innerHTML = lausunto;
+    
 }
+
+function round(num) {
+    // Pyöristä tasaeuroihin (tai muuta 1->100 niin pyöristää sentteihin)
+    return Math.ceil(num*1) / 1
+}
+
+window.onload = update;

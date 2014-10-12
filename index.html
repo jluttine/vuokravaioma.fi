@@ -2,49 +2,106 @@
 <html>
 
   <head>
-    <title>Vuokralla vai omistusasunnossa?</title>
-    <script type="text/javascript" src="laskuri.js"></script>
-    <meta charset="ISO-8859-15"> 
+    <title>VuokraVaiOma.fi - Asuako vuokralla vai omistusasunnossa?</title>
+    <script type="text/javascript" src="js/laskuri.js"></script>
+    <meta charset="utf-8"> 
   </head>
 
   <body>
 
-    <h1>Vuokralla vai omistusasunnossa?</h1>
+    <h1>Vuokra-asunto vai omistusasunto?</h1>
 
     <p>
-      Onko kannattavampaa asua vuokralla vai omistusasunnossa? Sy�t� alla
-      olevaan laskuriin tiedot ja arvioi itse.
+      Onko kannattavampaa asua vuokralla vai omistusasunnossa? Syötä tiedot alla
+      olevaan laskuriin ja arvioi itse.
     </p>
 
     <table>
       <tr>
-        <td>
-          <label for="paaoma">Alkup��oma:</label>
-        </td>
-        <td>
-          <input type="number" id="paaoma" min="0" value="0" onchange="update()"/>
-        </td>
+        <td><label for="paaoma">Alkupääoma:</label></td>
+        <td><input type="number" id="paaoma" min="0" value="0" onchange="update()"/></td>
       </tr>
     
       <tr>
-        <td>
-          <label for="hinta">Asunnon hinta:</label>
-        </td>
-        <td>
-          <input type="number" id="hinta" min="0" value="200000" onchange="update()"/>
-        </td>
+        <td><label for="hinta">Asunnon hinta:</label></td>
+        <td><input type="number" id="hinta" min="0" value="200000" onchange="update()"/></td>
       </tr>
 
       <tr>
-        <td>
-          <label for="hinta">Lainan suuruus:</label>
-        </td>
-        <td id="laina">
-          200000
-        </td>
+        <td><label for="hinta">Lainan suuruus:</label></td>
+        <td id="laina">200000</td>
+      </tr>
+
+      <tr>
+        <td><label for="korko">Korkoprosentti:</label></td>
+        <td><input type="number" id="korko" min="0" value="4" onchange="update()"/></td>
+      </tr>
+
+      <tr>
+        <td><label for="aika">Laina-aika:</label></td>
+        <td><input type="number" id="aika" min="0" value="10" onchange="update()"/></td>
+      </tr>
+
+      <tr>
+        <td><label for="annuiteetti">Annuiteetti:</label></td>
+        <td id="annuiteetti">???</td>
+      </tr>
+
+      <tr>
+        <td><label for="vastike">Yhtiövastike:</label></td>
+        <td><input type="number" id="vastike" min="0" value="200" onchange="update()"/></td>
+      </tr>
+
+      <tr>
+        <td><label for="kulu">Kuukausikulu:</label></td>
+        <td id="kulu">???</td>
       </tr>
 
     </table>
+
+    <table>
+    
+      <tr>
+        <td><label for="vuokra">Vuokra:</label></td>
+        <td><input type="number" id="vuokra" min="0" value="1000" onchange="update()"/></td>
+      </tr>
+
+      <tr>
+        <td><label for="saasto">Vuosisäästö:</label></td>
+        <td id="saasto">???</td>
+      </tr>
+
+      <tr>
+        <td><label for="tuotto">Säästöjen tuottoprosentti:</label></td>
+        <td><input type="number" id="tuotto" min="0" value="5" onchange="update()"/></td>
+      </tr>
+
+      <tr>
+        <td><label for="lopussa">Säästöt ja alkupääoma lopussa:</label></td>
+        <td id="lopussa">???</td>
+      </tr>
+
+    </table>
+
+    <p id="lausunto"></p>
+
+    <p>Vertailu tekee tällä hetkellä seuraavia yksinkertaistavia oletuksia:
+      <ul>
+        <li>Asunnon hinta, vuokra ja yhtiövastike, sekä lainan korko ja
+        vaihtoehtoisten sijoitusten tuottoprosentti eivät muutu ajanjakson
+        aikana.</li>
+        <li>Laina maksetaan takaisin tasaeräisenä.</li>
+      </ul>
+    </p>
+
+    <p><i>Vastuuvapauslauseke: Käytä vertailua omalla vastuullasi. Sivuston
+    tekijät tai ylläpitäjät eivät takaa että vertailu on laskettu oikein tai
+    että tulosten perusteella voisi tehdä mitään päätöksiä. Vertailu tekee myös
+    epärealistisia yksinkertaistuksia, jotka tulisi ottaa huomioon todellisessa
+    päätöksenteossa. Lisäksi kullakin käyttäjällä voi olla vuokra-asunnon tai
+    omistusasunnon kannattavuuteen liittyen taloudellisen hyödyn lisäksi
+    muitakin mittareita, joita tämä vertailu ei millään tavalla huomioi.</i></p>
+
 
   </body>
 

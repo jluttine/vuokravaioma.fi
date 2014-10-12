@@ -79,13 +79,13 @@ function update() {
     vuokrapaaoma = round(vuokrapaaoma);
     omistuspaaoma = round(omistuspaaoma);
     if (vuokrapaaoma > omistuspaaoma) {
-        var lausunto = "Annetuilla tiedoilla <b>vuokra-asunto</b> on " + (vuokrapaaoma-omistuspaaoma) + " euroa kannattavampi.";
+        var lausunto = "Annetuilla tiedoilla <b>vuokra-asunto</b> on ollut " + (vuokrapaaoma-omistuspaaoma) + " euroa kannattavampi laina-ajan loputtua.";
     }
     else if (vuokrapaaoma < omistuspaaoma) {
-        var lausunto = "Annetuilla tiedoilla <b>omistusasunto</b> on " + (omistuspaaoma-vuokrapaaoma) + " euroa kannattavampi.";
+        var lausunto = "Annetuilla tiedoilla <b>omistusasunto</b> on ollut " + (omistuspaaoma-vuokrapaaoma) + " euroa kannattavampi laina-ajan loputtua.";
     }
     else {
-        var lausunto = "Annetuilla tiedoilla vuokra-asunto ja omistusasunto ovat yhtä kannattavia.";
+        var lausunto = "Annetuilla tiedoilla vuokra-asunto ja omistusasunto ovat olleet yhtä kannattavia laina-ajan loputtua.";
     }
     document.getElementById("lausunto").innerHTML = lausunto;
     

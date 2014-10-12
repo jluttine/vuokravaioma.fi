@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Vuokralla vai omistusasunnossa?</title>
+    <script type="text/javascript" src="laskuri.js"></script>
+    <meta charset="ISO-8859-15"> 
+  </head>
+
+  <body>
+
+    <h1>Vuokralla vai omistusasunnossa?</h1>
+
+    <p>
+      Onko kannattavampaa asua vuokralla vai omistusasunnossa? Syötä alla
+      olevaan laskuriin tiedot ja arvioi itse.
+    </p>
+
+    <table>
+      <tr>
+        <td>
+          <label for="paaoma">Alkupääoma:</label>
+        </td>
+        <td>
+          <input type="number" id="paaoma" min="0" value="0" onchange="update()"/>
+        </td>
+      </tr>
+    
+      <tr>
+        <td>
+          <label for="hinta">Asunnon hinta:</label>
+        </td>
+        <td>
+          <input type="number" id="hinta" min="0" value="200000" onchange="update()"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="hinta">Lainan suuruus:</label>
+        </td>
+        <td id="laina">
+          200000
+        </td>
+      </tr>
+
+    </table>
+
+  </body>
+
+</html>

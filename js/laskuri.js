@@ -55,11 +55,16 @@ function update() {
         var kerroin = Math.pow(1+tuotto, aika);
         var kksaasto = kulu - vuokra;
         var saasto = 12 * kksaasto;
-        if (kulu > vuokra) {
-            var vuokrapaaoma = kerroin * paaoma + (kerroin - 1) / tuotto * saasto;
+        if (tuotto != 0) {
+            if (kulu > vuokra) {
+                var vuokrapaaoma = kerroin * paaoma + (kerroin - 1) / tuotto * saasto;
+            }
+            else {
+                var vuokrapaaoma = kerroin * paaoma + saasto * aika;
+            }
         }
         else {
-            var vuokrapaaoma = kerroin * paaoma + saasto * aika;
+            var vuokrapaaoma = paaoma + saasto * aika;
         }
     }
     else {

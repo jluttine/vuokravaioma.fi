@@ -51,24 +51,24 @@ function update() {
     var kulu = annuiteetti / 12.0 + vastike
 
     // Laske vuokralla asumisen tunnusluvut
+    var kerroin = Math.pow(1+tuotto, aika);
+    var kksaasto = kulu - vuokra;
+    var saasto = 12 * kksaasto;
     if (kulu > vuokra) {
-        var kksaasto = kulu - vuokra;
-        var saasto = 12 * kksaasto;
-        var kerroin = Math.pow(1+tuotto, aika);
         var vuokrapaaoma = kerroin * paaoma + (kerroin - 1) / tuotto * saasto;
     }
     else {
-        var saasto = - (vuokra-kulu) * 12
-        var vuokrapaaoma = saasto * aika;
+        var vuokrapaaoma = kerroin * paaoma + saasto * aika;
     }
 
     // Näytä tunnusluvut
     document.getElementById("laina").innerHTML = round(laina);
     document.getElementById("annuiteetti").innerHTML = round(annuiteetti);
     document.getElementById("kulu").innerHTML = round(kulu);
+    document.getElementById("omistuspaaoma").innerHTML = round(omistuspaaoma) + " euroa";
 
-    document.getElementById("saasto").innerHTML = round(saasto);
-    document.getElementById("lopussa").innerHTML = round(vuokrapaaoma);
+    document.getElementById("saasto").innerHTML = round(kksaasto);
+    document.getElementById("vuokrapaaoma").innerHTML = round(vuokrapaaoma) + " euroa";
 
     // Loppulausunto
     vuokrapaaoma = round(vuokrapaaoma);

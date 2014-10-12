@@ -1,116 +1,219 @@
 <!DOCTYPE html>
+<!--
+    VuokraVaiOma.fi Website
+    Released for free under the GNU Affero General Public License 3.0
+
+	Using template Linear by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
 <html>
 
   <head>
     <title>VuokraVaiOma.fi - Asuako vuokralla vai omistusasunnossa?</title>
     <script type="text/javascript" src="js/laskuri.js"></script>
     <meta charset="utf-8"> 
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-panels.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="css/skel-noscript.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/style-desktop.css" />
+    </noscript>
   </head>
 
-  <body>
+  <body class="homepage">
 
-    <h1>Vuokra-asunto vai omistusasunto?</h1>
+    <!-- Featured -->
+    <div id="featured">
+      <div class="container">
+	<header>
+	  <h2>Vuokra vai oma?</h2>
+	</header>
+	<p>
+           Kumpi on kannattavampi? Syötä tiedot laskuriin ja arvioi itse.
+        </p>
+      </div>
+    </div>
 
-    <p>
-      Onko kannattavampaa asua vuokralla vai omistusasunnossa? Syötä tiedot alla
-      olevaan laskuriin ja arvioi itse.
-    </p>
+    <!-- Main -->
+    <div id="main">
+      <div id="content" class="container">
 
-    <div>
+	<div class="row">
 
-      <table>
-        <tr>
-          <td><label for="paaoma">Alkupääoma:</label></td>
-          <td><input type="number" id="paaoma" min="0" value="0" onchange="update()"/></td>
-        </tr>
-        
-        <tr>
-          <td><label for="hinta">Asunnon hinta:</label></td>
-          <td><input type="number" id="hinta" min="0" value="200000" onchange="update()"/></td>
-        </tr>
+	  <section class="6u">
+	    <img src="images/omistus.jpg" alt="" class="image full">
+	    <header>
+	      <h2>Omistusasunto</h2>
+              <p>
+                Ostat asunnon lainalla ja/tai säästöillä ja maksat lainan pois tasaerinä.
+              </p>
+	    </header>
+            <div align="center">
+              <table>
+                <tr>
+                  <td class="label"><label for="hinta">Asunnon hinta (e)</label></td>
+                  <td><input type="number" id="hinta" min="0" value="200000" onchange="update()"/></td>
+                </tr>
 
-        <tr>
-          <td><label for="hinta">Lainan suuruus:</label></td>
-          <td id="laina">200000</td>
-        </tr>
+                <tr>
+                  <td class="label"><label for="paaoma">Alkupääoma (e)</label></td>
+                  <td><input type="number" id="paaoma" min="0" value="20000" onchange="update()"/></td>
+                </tr>
+                
+                <tr>
+                  <td class="label"><label for="hinta">Lainan suuruus (e)</label></td>
+                  <td id="laina">200000</td>
+                </tr>
 
-        <tr>
-          <td><label for="korko">Korkoprosentti:</label></td>
-          <td><input type="number" id="korko" min="0" value="4" onchange="update()"/></td>
-        </tr>
+                <tr>
+                  <td class="label"><label for="korko">Korko (%/vuosi)</label></td>
+                  <td><input type="number" id="korko" min="0" value="4" onchange="update()"/></td>
+                </tr>
 
-        <tr>
-          <td><label for="aika">Laina-aika:</label></td>
-          <td><input type="number" id="aika" min="0" value="10" onchange="update()"/></td>
-        </tr>
+                <tr>
+                  <td class="label"><label for="aika">Laina-aika (vuotta)</label></td>
+                  <td><input type="number" id="aika" min="0" value="10" onchange="update()"/></td>
+                </tr>
 
-        <tr>
-          <td><label for="annuiteetti">Annuiteetti:</label></td>
-          <td id="annuiteetti">???</td>
-        </tr>
+                <tr>
+                  <td class="label"><label for="annuiteetti">Annuiteetti (e/vuosi)</label></td>
+                  <td id="annuiteetti">???</td>
+                </tr>
 
-        <tr>
-          <td><label for="vastike">Yhtiövastike:</label></td>
-          <td><input type="number" id="vastike" min="0" value="200" onchange="update()"/></td>
-        </tr>
+                <tr>
+                  <td class="label"><label for="vastike">Yhtiövastike (e/kk)</label></td>
+                  <td><input type="number" id="vastike" min="0" value="200" onchange="update()"/></td>
+                </tr>
 
-        <tr>
-          <td><label for="kulu">Kuukausikulu:</label></td>
-          <td id="kulu">???</td>
-        </tr>
+                <tr>
+                  <td class="label"><label for="kulu">Kokonaiskulut (e/kk)</label></td>
+                  <td id="kulu">???</td>
+                </tr>
 
-      </table>
+                <tr><td>&nbsp;</td></tr>
+
+                <tr>
+                  <td class="label"><label for="omistuspaaoma">Pääoma lopussa</label></td>
+                  <td id="omistuspaaoma">???</td>
+                </tr>
+
+              </table>
+            </div>
+	  </section>
+
+	  <section class="6u">
+	    <img src="images/vuokra.jpg" alt="" class="image full">
+
+	    <header>
+	      <h2>Vuokra-asunto</h2>
+              <p>
+                Asut vuokralla ja sijoitat omistusasunnon alkupääoman sekä
+                summan, jonka säästät verrattuna omistusasumisen kuukausikuluun.
+              </p>
+	    </header>
+
+            <div align="center">
+              <table>
+                
+                <tr>
+                  <td class="label"><label for="vuokra">Vuokra (e/kk)</label></td>
+                  <td><input type="number" id="vuokra" min="0" value="1000" onchange="update()"/></td>
+                </tr>
+
+                <tr>
+                  <td class="label"><label for="saasto">Sijoitus (e/kk)</label></td>
+                  <td id="saasto">???</td>
+                </tr>
+
+                <tr>
+                  <td class="label"><label for="tuotto">Sijoitusten tuotto (%/vuosi)</label></td>
+                  <td><input type="number" id="tuotto" min="0" value="5" onchange="update()"/></td>
+                </tr>
+
+                <tr><td>&nbsp;</td></tr>
+
+                <tr>
+                  <td class="label"><label for="vuokrapaaoma">Pääoma lopussa</label></td>
+                  <td id="vuokrapaaoma">???</td>
+                </tr>
+
+              </table>
+            </div>
+
+	  </section>
+
+	</div>
+
+	<div class="row">
+	  <section class="12u">
+            <p id="lausunto"></p>
+          </section>
+        </div>
+      </div>
+
 
     </div>
 
-    <div>
 
-      <table>
-        
-        <tr>
-          <td><label for="vuokra">Vuokra:</label></td>
-          <td><input type="number" id="vuokra" min="0" value="1000" onchange="update()"/></td>
-        </tr>
 
-        <tr>
-          <td><label for="saasto">Vuosisäästö:</label></td>
-          <td id="saasto">???</td>
-        </tr>
 
-        <tr>
-          <td><label for="tuotto">Säästöjen tuottoprosentti:</label></td>
-          <td><input type="number" id="tuotto" min="0" value="5" onchange="update()"/></td>
-        </tr>
 
-        <tr>
-          <td><label for="lopussa">Säästöt ja alkupääoma lopussa:</label></td>
-          <td id="lopussa">???</td>
-        </tr>
-
-      </table>
-
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container">
+	<section>
+          <header>
+          <h2>Vertailu tekee tällä hetkellä seuraavia oletuksia:</h2>
+          <p>
+            <ul>
+              <li>Asunnon hinta, vuokra ja yhtiövastike tai lainan korko
+                ja vaihtoehtoisten sijoitusten tuottoprosentti eivät muutu
+                ajanjakson aikana.</li>
+              <li>Laina maksetaan takaisin tasaeräisenä.</li>
+              <li>Varainsiirtoveroa tai erilaisia verohelpotuksia ei ole huomioitu.</li>
+              <li>Laskelmissa voi olla muitakin yksinkertaistuksia. Virheistä
+                voi ilmoittaa ja parannuksia
+                tarjota <a href="https://github.com/jluttine/vuokravaioma.fi">GitHubissa</a>, <a href="https://twitter.com/vuokravaioma">Twitterissä</a>
+                tai <a href="https://www.facebook.com/pages/Vuokra-vai-oma/718265951586832">Facebookissa.</a>
+              </li>
+            </ul>
+          </p>
+          </header>
+          <p><i> Vastuuvapauslauseke: Käytä vertailua omalla
+            vastuullasi. Sivuston tekijät tai ylläpitäjät eivät takaa että
+            vertailu on laskettu oikein tai että tulosten perusteella voisi
+            tehdä mitään päätöksiä. Vertailu tekee myös epärealistisia
+            yksinkertaistuksia, jotka voivat vääristää tilannetta todellisessa
+            päätöksenteossa. Lisäksi kullakin käyttäjällä voi olla
+            vuokra-asunnon tai omistusasunnon kannattavuuteen liittyen
+            taloudellisen hyödyn lisäksi muitakin mittareita, joita tämä
+            vertailu ei millään tavalla huomioi.
+          </i></p>
+	  <ul class="contact">
+	    <li><a href="https://github.com/jluttine/vuokravaioma.fi" class="fa fa-github"><span>GitHub</span></a></li>
+	    <li><a href="https://twitter.com/vuokravaioma" class="fa fa-twitter"><span>Twitter</span></a></li>
+	    <li class="active"><a href="https://www.facebook.com/pages/Vuokra-vai-oma/718265951586832" class="fa fa-facebook"><span>Facebook</span></a></li>
+	  </ul>
+	</section>
+      </div>
     </div>
 
-    <p id="lausunto"></p>
-
-    <p>Vertailu tekee tällä hetkellä seuraavia yksinkertaistavia oletuksia:
-      <ul>
-        <li>Asunnon hinta, vuokra ja yhtiövastike, sekä lainan korko ja
-        vaihtoehtoisten sijoitusten tuottoprosentti eivät muutu ajanjakson
-        aikana.</li>
-        <li>Laina maksetaan takaisin tasaeräisenä.</li>
-        <li>Varainsiirtoveroa tai erilaisia verohelpotuksia ei ole huomioitu.</li>
-      </ul>
-    </p>
-
-    <p><i>Vastuuvapauslauseke: Käytä vertailua omalla vastuullasi. Sivuston
-    tekijät tai ylläpitäjät eivät takaa että vertailu on laskettu oikein tai
-    että tulosten perusteella voisi tehdä mitään päätöksiä. Vertailu tekee myös
-    epärealistisia yksinkertaistuksia, jotka tulisi ottaa huomioon todellisessa
-    päätöksenteossa. Lisäksi kullakin käyttäjällä voi olla vuokra-asunnon tai
-    omistusasunnon kannattavuuteen liittyen taloudellisen hyödyn lisäksi
-    muitakin mittareita, joita tämä vertailu ei millään tavalla huomioi.</i></p>
-
+    <!-- Copyright -->
+    <div id="copyright">
+      <div class="container">
+	Copyright (c) 2014 Jaakko Luttinen<br /> 
+        Koodi: <a href="https://github.com/jluttine/vuokravaioma.fi">GitHub (AGPL)</a>
+        Tyyli: <a href="http://templated.co">TEMPLATED (CC-BY)</a>
+        Images: <a href="http://pixabay.com/">Pixabay (CC0)</a>
+      </div>
+    </div>
 
   </body>
 

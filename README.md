@@ -8,7 +8,7 @@ Bugit ja parannukset
 --------------------
 
 Löysitkö koodista virheitä tai haluaisitko muuten vaan parantaa sitä? Kontribuoi
-osoitteessa https://github.com/jluttine/vuokrallako.fi.
+osoitteessa https://github.com/jluttine/vuokravaioma.fi.
 
 Lisenssi
 --------

@@ -16,72 +16,80 @@
       olevaan laskuriin ja arvioi itse.
     </p>
 
-    <table>
-      <tr>
-        <td><label for="paaoma">Alkupääoma:</label></td>
-        <td><input type="number" id="paaoma" min="0" value="0" onchange="update()"/></td>
-      </tr>
-    
-      <tr>
-        <td><label for="hinta">Asunnon hinta:</label></td>
-        <td><input type="number" id="hinta" min="0" value="200000" onchange="update()"/></td>
-      </tr>
+    <div>
 
-      <tr>
-        <td><label for="hinta">Lainan suuruus:</label></td>
-        <td id="laina">200000</td>
-      </tr>
+      <table>
+        <tr>
+          <td><label for="paaoma">Alkupääoma:</label></td>
+          <td><input type="number" id="paaoma" min="0" value="0" onchange="update()"/></td>
+        </tr>
+        
+        <tr>
+          <td><label for="hinta">Asunnon hinta:</label></td>
+          <td><input type="number" id="hinta" min="0" value="200000" onchange="update()"/></td>
+        </tr>
 
-      <tr>
-        <td><label for="korko">Korkoprosentti:</label></td>
-        <td><input type="number" id="korko" min="0" value="4" onchange="update()"/></td>
-      </tr>
+        <tr>
+          <td><label for="hinta">Lainan suuruus:</label></td>
+          <td id="laina">200000</td>
+        </tr>
 
-      <tr>
-        <td><label for="aika">Laina-aika:</label></td>
-        <td><input type="number" id="aika" min="0" value="10" onchange="update()"/></td>
-      </tr>
+        <tr>
+          <td><label for="korko">Korkoprosentti:</label></td>
+          <td><input type="number" id="korko" min="0" value="4" onchange="update()"/></td>
+        </tr>
 
-      <tr>
-        <td><label for="annuiteetti">Annuiteetti:</label></td>
-        <td id="annuiteetti">???</td>
-      </tr>
+        <tr>
+          <td><label for="aika">Laina-aika:</label></td>
+          <td><input type="number" id="aika" min="0" value="10" onchange="update()"/></td>
+        </tr>
 
-      <tr>
-        <td><label for="vastike">Yhtiövastike:</label></td>
-        <td><input type="number" id="vastike" min="0" value="200" onchange="update()"/></td>
-      </tr>
+        <tr>
+          <td><label for="annuiteetti">Annuiteetti:</label></td>
+          <td id="annuiteetti">???</td>
+        </tr>
 
-      <tr>
-        <td><label for="kulu">Kuukausikulu:</label></td>
-        <td id="kulu">???</td>
-      </tr>
+        <tr>
+          <td><label for="vastike">Yhtiövastike:</label></td>
+          <td><input type="number" id="vastike" min="0" value="200" onchange="update()"/></td>
+        </tr>
 
-    </table>
+        <tr>
+          <td><label for="kulu">Kuukausikulu:</label></td>
+          <td id="kulu">???</td>
+        </tr>
 
-    <table>
-    
-      <tr>
-        <td><label for="vuokra">Vuokra:</label></td>
-        <td><input type="number" id="vuokra" min="0" value="1000" onchange="update()"/></td>
-      </tr>
+      </table>
 
-      <tr>
-        <td><label for="saasto">Vuosisäästö:</label></td>
-        <td id="saasto">???</td>
-      </tr>
+    </div>
 
-      <tr>
-        <td><label for="tuotto">Säästöjen tuottoprosentti:</label></td>
-        <td><input type="number" id="tuotto" min="0" value="5" onchange="update()"/></td>
-      </tr>
+    <div>
 
-      <tr>
-        <td><label for="lopussa">Säästöt ja alkupääoma lopussa:</label></td>
-        <td id="lopussa">???</td>
-      </tr>
+      <table>
+        
+        <tr>
+          <td><label for="vuokra">Vuokra:</label></td>
+          <td><input type="number" id="vuokra" min="0" value="1000" onchange="update()"/></td>
+        </tr>
 
-    </table>
+        <tr>
+          <td><label for="saasto">Vuosisäästö:</label></td>
+          <td id="saasto">???</td>
+        </tr>
+
+        <tr>
+          <td><label for="tuotto">Säästöjen tuottoprosentti:</label></td>
+          <td><input type="number" id="tuotto" min="0" value="5" onchange="update()"/></td>
+        </tr>
+
+        <tr>
+          <td><label for="lopussa">Säästöt ja alkupääoma lopussa:</label></td>
+          <td id="lopussa">???</td>
+        </tr>
+
+      </table>
+
+    </div>
 
     <p id="lausunto"></p>
 
@@ -91,6 +99,7 @@
         vaihtoehtoisten sijoitusten tuottoprosentti eivät muutu ajanjakson
         aikana.</li>
         <li>Laina maksetaan takaisin tasaeräisenä.</li>
+        <li>Varainsiirtoveroa tai erilaisia verohelpotuksia ei ole huomioitu.</li>
       </ul>
     </p>
 

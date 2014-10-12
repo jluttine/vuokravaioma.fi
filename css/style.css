@@ -112,6 +112,10 @@
             padding-right: 1em;
             text-align: right;
         }
+        td.data
+        {
+            text-align: left;
+        }
 
         #footer h2
         {

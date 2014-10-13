@@ -23,20 +23,20 @@ function update() {
     var korko = document.getElementById('korko').value / 100.0;
     var aika = document.getElementById('aika').value * 1.0;
     var vastike = document.getElementById('vastike').value * 1.0;
+    var asuntomuutos = 1.0 + document.getElementById('asuntomuutos').value / 100.0;
+    var vastikemuutos = 1.0 + document.getElementById('vastikemuutos').value / 100.0;
+    var vuokramuutos = 1.0 + document.getElementById('vuokramuutos').value / 100.0;
     
     var vuokra = document.getElementById('vuokra').value * 1.0;
-    var tuotto = document.getElementById('tuotto').value / 100.0;
+    var tuotto = 1.0 + document.getElementById('tuotto').value / 100.0;
 
-    // Laske omistusasumisen tunnusluvut
-    if (hinta > paaoma) {
+    // Laske lainan suuruus
+    if (hinta > paaoma)
         var laina = hinta - paaoma;
-        var omistuspaaoma = hinta;
-    }
-    else {
-        var laina = 0.0;
-        var omistuspaaoma = paaoma;
-    }
+    else
+        var laina = 0;
 
+    // Laske annuiteetti
     if (aika > 0) {
         var kasvukerroin = Math.pow(1+korko, aika)
         if (korko > 0)
@@ -44,40 +44,67 @@ function update() {
         else if (korko == 0)
             var annuiteetti = laina / aika;
     }
-    else if (aika == 0) {
+    else {
+        // VIRHEILMOITUS
         var annuiteetti = laina;
     }
 
-    var kulu = annuiteetti / 12.0 + vastike
+    var sijoitukset = paaoma;
 
-    // Laske vuokralla asumisen tunnusluvut
-    if (aika > 0) {
-        var kerroin = Math.pow(1+tuotto, aika);
-        var kksaasto = kulu - vuokra;
-        var saasto = 12 * kksaasto;
-        if (tuotto != 0) {
-            if (kulu > vuokra) {
-                var vuokrapaaoma = kerroin * paaoma + (kerroin - 1) / tuotto * saasto;
+    var vastikekk = vastike;
+    var vuokrakk = vuokra;
+    var lainakulukk = annuiteetti / 12.0;
+    var vastikemuutoskk = Math.pow(vastikemuutos, 1.0/12);
+    var vuokramuutoskk = Math.pow(vuokramuutos, 1.0/12);
+    var tuottokk = Math.pow(tuotto, 1.0/12);
+
+    // Iteraatio
+    for (var vuosi = 0; vuosi < aika; vuosi++)
+    {
+        for (var kuukausi = 0; kuukausi < 12; kuukausi++)
+        {
+            // Kuukausikulu omistusasumisessa
+            var omistuskulukk = lainakulukk + vastikekk;
+
+            // Sijoitettava summa vuokralla asuessa
+            var saastokk = omistuskulukk - vuokrakk;
+            sijoitukset += saastokk;
+
+            // Hintojen muutokset
+            vuokrakk *= vuokramuutoskk;
+            vastikekk *= vastikemuutoskk;
+
+            if (sijoitukset >= 0)
+            {
+                // Sijoitusten kasvu
+                sijoitukset *= tuottokk;
             }
-            else {
-                var vuokrapaaoma = kerroin * paaoma + saasto * aika;
+            else
+            {
+                // Varoitus. Vuokralla asuja käyttää enemmän rahaa. Vertailu ei
+                // ole raha koska tämä tappio ei kasva korkoa.
             }
         }
-        else {
-            var vuokrapaaoma = paaoma + saasto * aika;
-        }
     }
-    else {
-        var vuokrapaaoma = omistuspaaoma;
-    }
+
+    // Laske omistusasujan pääoma
+    var omistuspaaoma = 0;
+    if (paaoma > hinta)
+        omistuspaaoma = paaoma - hinta;
+    // Asunnon arvon kehitys
+    hinta *= Math.pow(asuntomuutos, aika);
+    omistuspaaoma += hinta;
+
+    // Laske vuokralla asujan pääoma
+    var vuokrapaaoma = sijoitukset;
 
     // Näytä tunnusluvut
     document.getElementById("laina").innerHTML = round(laina);
-    document.getElementById("annuiteetti").innerHTML = round(annuiteetti);
-    document.getElementById("kulu").innerHTML = round(kulu);
+    document.getElementById("lainakulut").innerHTML = round(lainakulukk);
+    //document.getElementById("kulu").innerHTML = round(kulu);
     document.getElementById("omistuspaaoma").innerHTML = round(omistuspaaoma) + " euroa";
 
-    document.getElementById("saasto").innerHTML = round(kksaasto);
+    //document.getElementById("saasto").innerHTML = round(kksaasto);
     document.getElementById("vuokrapaaoma").innerHTML = round(vuokrapaaoma) + " euroa";
 
     // Loppulausunto

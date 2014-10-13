@@ -80,12 +80,12 @@
 
               <tr>
                 <td class="label"><label for="aika">Laina-aika (vuotta)</label></td>
-                <td class="data"><input type="number" id="aika" min="0" value="15" step="any" onchange="update()"/></td>
+                <td class="data"><input type="number" id="aika" min="1" max="100" value="15" step="1" onchange="update()"/></td>
               </tr>
 
               <tr>
-                <td class="label"><label>Annuiteetti (e/vuosi)</label></td>
-                <td class="data" id="annuiteetti">???</td>
+                <td class="label"><label>Lainakulut (e/kk)</label></td>
+                <td class="data" id="lainakulut">???</td>
               </tr>
 
               <tr>
@@ -94,8 +94,13 @@
               </tr>
 
               <tr>
-                <td class="label"><label>Kokonaiskulut (e/kk)</label></td>
-                <td class="data" id="kulu">???</td>
+                <td class="label"><label for="vastikemuutos">Yhtiövastikkeen muutos (%/vuosi)</label></td>
+                <td class="data"><input type="number" id="vastikemuutos" min="-100" value="1" step="any" onchange="update()"/></td>
+              </tr>
+
+              <tr>
+                <td class="label"><label for="asuntomuutos">Asunnon hinnan muutos (%/vuosi)</label></td>
+                <td class="data"><input type="number" id="asuntomuutos" min="-100" value="1" step="any" onchange="update()"/></td>
               </tr>
 
               <tr><td>&nbsp;</td><td></td></tr>
@@ -128,8 +133,8 @@
               </tr>
 
               <tr>
-                <td class="label"><label>Sijoitus (e/kk)</label></td>
-                <td class="data" id="saasto">???</td>
+                <td class="label"><label for="vuokramuutos">Vuokran muutos (%/vuosi)</label></td>
+                <td class="data"><input type="number" id="vuokramuutos" min="-100" value="1" step="any" onchange="update()"/></td>
               </tr>
 
               <tr>

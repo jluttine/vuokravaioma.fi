@@ -12,6 +12,9 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 
+/* Disable some mobile menu stuff */
+#skel-panels-defautlWrapper, #skel-panels-fixedWrapper { display: none; }
+
 	body
 	{
 		margin: 0;
